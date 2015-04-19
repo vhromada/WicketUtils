@@ -3,7 +3,6 @@ package cz.vhromada.web.wicket.panels;
 import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.ComponentProvider;
 
-import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -33,7 +32,7 @@ public abstract class BasePanel<T> extends GenericPanel<T> {
      *
      * @param id    ID
      * @param model model
-     * @throws WicketRuntimeException if ID is null
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
      */
     public BasePanel(final String id, final IModel<T> model) {
         super(id, model);

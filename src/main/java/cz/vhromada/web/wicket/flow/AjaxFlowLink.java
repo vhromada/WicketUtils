@@ -4,7 +4,6 @@ import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.controllers.Flow;
 import cz.vhromada.web.wicket.controllers.FlowRunner;
 
-import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.ajax.AjaxChannel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -39,8 +38,8 @@ public class AjaxFlowLink<T> extends AjaxLink<T> {
      *
      * @param id   ID
      * @param flow flow
-     * @throws WicketRuntimeException   if ID is null
-     * @throws IllegalArgumentException if flow is null
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
+     * @throws IllegalArgumentException                 if flow is null
      */
     public AjaxFlowLink(final String id, final Flow flow) {
         this(id, null, flow);
@@ -52,8 +51,8 @@ public class AjaxFlowLink<T> extends AjaxLink<T> {
      * @param id    ID
      * @param model model
      * @param flow  flow
-     * @throws WicketRuntimeException   if ID is null
-     * @throws IllegalArgumentException if flow is null
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
+     * @throws IllegalArgumentException                 if flow is null
      */
     public AjaxFlowLink(final String id, final IModel<T> model, final Flow flow) {
         super(id, model);

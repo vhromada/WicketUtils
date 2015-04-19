@@ -4,7 +4,6 @@ import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.controllers.Flow;
 import cz.vhromada.web.wicket.controllers.FlowRunner;
 
-import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.ajax.AjaxChannel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -39,8 +38,8 @@ public class AjaxFlowSubmitLink extends AjaxSubmitLink {
      * @param id   ID
      * @param form form
      * @param flow flow
-     * @throws WicketRuntimeException   if ID is null
-     * @throws IllegalArgumentException if flow is null
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
+     * @throws IllegalArgumentException                 if flow is null
      */
     public AjaxFlowSubmitLink(final String id, final Form<?> form, final Flow flow) {
         super(id, form);

@@ -35,6 +35,7 @@ public class FrontController {
      * Dispatches request to appropriate controller and returns its response.
      *
      * @param request request
+     * @param <T>     type of data
      * @return list of page events
      */
     public <T> List<PageEvent> dispatch(final FrontControllerRequest<T> request) {
