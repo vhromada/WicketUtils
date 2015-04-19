@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cz.vhromada.validators.Validators;
+import javax.annotation.PostConstruct;
+
 import cz.vhromada.web.wicket.events.PageEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,22 +25,11 @@ public class FrontController {
     private Map<Flow, Controller<?>> flowControllerMap;
 
     /**
-     * Creates a new instance of FrontController.
-     *
-     * @param controllers controllers
-     * @throws IllegalArgumentException                              if controllers are null
-     * @throws cz.vhromada.validators.exceptions.ValidationException if controllers contain null value
+     * Controllers
      */
     @Autowired
-    public FrontController(final List<Controller<?>> controllers) {
-        Validators.validateArgumentNotNull(controllers, "Controllers");
-        Validators.validateCollectionNotContainNull(controllers, "Controllers");
-
-        this.flowControllerMap = new HashMap<>();
-        for (final Controller<?> controller : controllers) {
-            this.flowControllerMap.put(controller.getFlow(), controller);
-        }
-    }
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    private List<Controller<?>> controllers;
 
     /**
      * Dispatches request to appropriate controller and returns its response.
@@ -71,6 +61,17 @@ public class FrontController {
     @SuppressWarnings("unchecked")
     private <T> Controller<T> lookup(final Flow flow) {
         return (Controller<T>) flowControllerMap.get(flow);
+    }
+
+    /**
+     * Initializes map between flow and controller.
+     */
+    @PostConstruct
+    private void init() {
+        flowControllerMap = new HashMap<>();
+        for (final Controller<?> controller : controllers) {
+            flowControllerMap.put(controller.getFlow(), controller);
+        }
     }
 
 }

@@ -1,6 +1,5 @@
 package cz.vhromada.web.wicket;
 
-import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.panels.BasePanel;
 
 import org.apache.wicket.model.IModel;
@@ -19,20 +18,8 @@ public class ComponentProvider {
     /**
      * Application context
      */
-    private ApplicationContext applicationContext;
-
-    /**
-     * Creates a new instance of ComponentProvider.
-     *
-     * @param applicationContext application context
-     * @throws IllegalArgumentException if application context is null
-     */
     @Autowired
-    public ComponentProvider(final ApplicationContext applicationContext) {
-        Validators.validateArgumentNotNull(applicationContext, "Application context");
-
-        this.applicationContext = applicationContext;
-    }
+    private ApplicationContext applicationContext;
 
     /**
      * Returns panel.
