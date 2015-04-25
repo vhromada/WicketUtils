@@ -3,6 +3,7 @@ package cz.vhromada.web.wicket.panels;
 import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.ComponentProvider;
 
+import org.apache.wicket.markup.html.panel.EmptyPanel;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -53,6 +54,17 @@ public abstract class BasePanel<T> extends GenericPanel<T> {
         Validators.validateArgumentNotNull(wicketId, "Wicket ID");
 
         return componentProvider.getPanel(id, wicketId, model);
+    }
+
+    /**
+     * Returns empty panel.
+     *
+     * @param id Wicket ID of panel
+     * @return panel
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
+     */
+    protected EmptyPanel getEmptyPanel(final String id) {
+        return new EmptyPanel(id);
     }
 
 }

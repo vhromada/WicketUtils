@@ -13,6 +13,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.event.Broadcast;
 import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.panel.EmptyPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -83,6 +84,17 @@ public abstract class WicketPage extends WebPage {
      */
     protected BasePanel getPanel(final String id, final String wicketId, final IModel<?> model) {
         return componentProvider.getPanel(id, wicketId, model);
+    }
+
+    /**
+     * Returns empty panel.
+     *
+     * @param id Wicket ID of panel
+     * @return panel
+     * @throws org.apache.wicket.WicketRuntimeException if ID is null
+     */
+    protected EmptyPanel getEmptyPanel(final String id) {
+        return new EmptyPanel(id);
     }
 
     /**
