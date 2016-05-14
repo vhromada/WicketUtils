@@ -6,7 +6,6 @@ import java.util.List;
 import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.events.PageEvent;
 
-
 /**
  * A class represents user interface.
  *
