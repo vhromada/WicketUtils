@@ -28,7 +28,7 @@ public class FrontController {
      * Controllers
      */
     @Autowired
-    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    @SuppressWarnings({ "MismatchedQueryAndUpdateOfCollection", "SpringAutowiredFieldsWarningInspection" })
     private List<Controller<?>> controllers;
 
     /**
@@ -41,7 +41,7 @@ public class FrontController {
     public <T> List<PageEvent> dispatch(final FrontControllerRequest<T> request) {
         final Controller<T> controller = lookup(request.getFlow());
         if (controller == null) {
-            throw new RuntimeException("Bad request: no controller available");
+            throw new IllegalArgumentException("Bad request: no controller available");
         }
 
         controller.setUi(new UI());

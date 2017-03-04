@@ -1,6 +1,5 @@
 package cz.vhromada.web.wicket.flow;
 
-import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.controllers.Flow;
 import cz.vhromada.web.wicket.controllers.FlowRunner;
 
@@ -9,6 +8,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.model.IModel;
+import org.springframework.util.Assert;
 
 /**
  * A class represents AJAX flow link.
@@ -31,7 +31,7 @@ public class AjaxFlowLink<T> extends AjaxLink<T> {
     /**
      * Flow
      */
-    private Flow flow;
+    private final Flow flow;
 
     /**
      * Creates a new instance of AjaxFlowLink.
@@ -57,7 +57,7 @@ public class AjaxFlowLink<T> extends AjaxLink<T> {
     public AjaxFlowLink(final String id, final IModel<T> model, final Flow flow) {
         super(id, model);
 
-        Validators.validateArgumentNotNull(flow, "Flow");
+        Assert.notNull(flow, "Flow mustn't be null.");
 
         this.flow = flow;
     }

@@ -24,7 +24,6 @@ public class EmptyAjaxRequestTarget implements AjaxRequestTarget {
     }
 
     @Override
-    @SuppressWarnings("OverloadedVarargsMethod")
     public void add(final Component... components) {
     }
 

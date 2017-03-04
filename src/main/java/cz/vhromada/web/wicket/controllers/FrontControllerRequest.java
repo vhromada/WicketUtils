@@ -1,6 +1,6 @@
 package cz.vhromada.web.wicket.controllers;
 
-import cz.vhromada.validators.Validators;
+import org.springframework.util.Assert;
 
 /**
  * A class represents front controller's request.
@@ -13,12 +13,12 @@ public class FrontControllerRequest<T> {
     /**
      * Flow
      */
-    private Flow flow;
+    private final Flow flow;
 
     /**
      * Data
      */
-    private T data;
+    private final T data;
 
     /**
      * Creates a new instance of FrontControllerRequest.
@@ -28,7 +28,7 @@ public class FrontControllerRequest<T> {
      * @throws IllegalArgumentException if flow is null
      */
     public FrontControllerRequest(final Flow flow, final T data) {
-        Validators.validateArgumentNotNull(flow, "Flow");
+        Assert.notNull(flow, "Flow mustn't be null.");
 
         this.flow = flow;
         this.data = data;

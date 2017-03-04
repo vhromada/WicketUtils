@@ -1,9 +1,8 @@
 package cz.vhromada.web.wicket.controllers;
 
-import cz.vhromada.validators.Validators;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.event.Broadcast;
+import org.springframework.util.Assert;
 
 /**
  * A class represents flow runner.
@@ -23,8 +22,8 @@ public class FlowRunner {
      *                                  or flow is null
      */
     public <T> FlowRunner(final Component source, final Flow flow, final T data) {
-        Validators.validateArgumentNotNull(source, "Source");
-        Validators.validateArgumentNotNull(flow, "Flow");
+        Assert.notNull(source, "Source mustn't be null.");
+        Assert.notNull(flow, "Flow mustn't be null.");
 
         source.send(source.getPage(), Broadcast.EXACT, new FrontControllerRequest<>(flow, data));
     }

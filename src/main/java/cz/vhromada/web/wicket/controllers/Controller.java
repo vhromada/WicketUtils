@@ -18,7 +18,7 @@ public abstract class Controller<T> {
      *
      * @param data data
      */
-    public abstract void handle(final T data);
+    public abstract void handle(T data);
 
     /**
      * Returns flow.

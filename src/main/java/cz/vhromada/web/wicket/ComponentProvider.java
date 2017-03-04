@@ -18,6 +18,7 @@ public class ComponentProvider {
      * Application context
      */
     @Autowired
+    @SuppressWarnings("SpringAutowiredFieldsWarningInspection")
     private ApplicationContext applicationContext;
 
     /**

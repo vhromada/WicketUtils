@@ -3,8 +3,9 @@ package cz.vhromada.web.wicket.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import cz.vhromada.validators.Validators;
 import cz.vhromada.web.wicket.events.PageEvent;
+
+import org.springframework.util.Assert;
 
 /**
  * A class represents user interface.
@@ -16,7 +17,7 @@ public class UI {
     /**
      * Events
      */
-    private List<PageEvent> events = new ArrayList<>();
+    private final List<PageEvent> events = new ArrayList<>();
 
     /**
      * Fire event on UI.
@@ -25,7 +26,7 @@ public class UI {
      * @throws IllegalArgumentException if event is null
      */
     public void fireEvent(final PageEvent event) {
-        Validators.validateArgumentNotNull(event, "Event");
+        Assert.notNull(event, "Event mustn't be null.");
 
         events.add(event);
     }

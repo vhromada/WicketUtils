@@ -91,7 +91,6 @@ public abstract class WicketPage extends WebPage {
      *
      * @param event page event
      */
-    protected abstract void onPageEvent(final PageEvent event);
+    protected abstract void onPageEvent(PageEvent event);
 
 }
-
