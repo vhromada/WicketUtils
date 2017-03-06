@@ -66,11 +66,8 @@ public abstract class WicketPage extends WebPage {
      */
     protected static AjaxRequestTarget getAjaxRequestTarget() {
         final AjaxRequestTarget target = RequestCycle.get().find(AjaxRequestTarget.class);
-        if (target != null) {
-            return target;
-        } else {
-            return new EmptyAjaxRequestTarget();
-        }
+
+        return target == null ? new EmptyAjaxRequestTarget() : target;
     }
 
     /**

@@ -57,6 +57,7 @@ public class FrontController {
      * Returns controller for specified flow.
      *
      * @param flow flow
+     * @param <T>  type of data
      * @return controller for specified flo
      */
     @SuppressWarnings("unchecked")
