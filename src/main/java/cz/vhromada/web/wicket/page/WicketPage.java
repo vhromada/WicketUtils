@@ -1,12 +1,12 @@
-package cz.vhromada.web.wicket.pages;
+package cz.vhromada.web.wicket.page;
 
 import java.util.List;
 
 import cz.vhromada.web.wicket.ComponentProvider;
 import cz.vhromada.web.wicket.EmptyAjaxRequestTarget;
-import cz.vhromada.web.wicket.controllers.FrontController;
-import cz.vhromada.web.wicket.controllers.FrontControllerRequest;
-import cz.vhromada.web.wicket.events.PageEvent;
+import cz.vhromada.web.wicket.controller.FrontController;
+import cz.vhromada.web.wicket.controller.FrontControllerRequest;
+import cz.vhromada.web.wicket.event.PageEvent;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.event.Broadcast;

@@ -1,7 +1,7 @@
 package cz.vhromada.web.wicket.flow;
 
-import cz.vhromada.web.wicket.controllers.Flow;
-import cz.vhromada.web.wicket.controllers.FlowRunner;
+import cz.vhromada.web.wicket.controller.Flow;
+import cz.vhromada.web.wicket.controller.FlowRunner;
 
 import org.apache.wicket.ajax.AjaxChannel;
 import org.apache.wicket.ajax.AjaxRequestTarget;

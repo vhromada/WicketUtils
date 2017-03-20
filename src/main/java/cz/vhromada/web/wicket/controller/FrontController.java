@@ -1,4 +1,4 @@
-package cz.vhromada.web.wicket.controllers;
+package cz.vhromada.web.wicket.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import cz.vhromada.web.wicket.events.PageEvent;
+import cz.vhromada.web.wicket.event.PageEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,7 +28,7 @@ public class FrontController {
      * Controllers
      */
     @Autowired
-    @SuppressWarnings({ "MismatchedQueryAndUpdateOfCollection", "SpringAutowiredFieldsWarningInspection" })
+    @SuppressWarnings({ "MismatchedQueryAndUpdateOfCollection", "SpringAutowiredFieldsWarningInspection", "SpringJavaAutowiringInspection" })
     private List<Controller<?>> controllers;
 
     /**

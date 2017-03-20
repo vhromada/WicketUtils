@@ -1,4 +1,4 @@
-package cz.vhromada.web.wicket.events;
+package cz.vhromada.web.wicket.event;
 
 /**
  * An interface represents page event.

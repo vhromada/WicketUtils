@@ -1,4 +1,4 @@
-package cz.vhromada.web.wicket.controllers;
+package cz.vhromada.web.wicket.controller;
 
 import org.springframework.util.Assert;
 

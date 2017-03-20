@@ -1,4 +1,4 @@
-package cz.vhromada.web.wicket.controllers;
+package cz.vhromada.web.wicket.controller;
 
 /**
  * An abstract class represents controller.

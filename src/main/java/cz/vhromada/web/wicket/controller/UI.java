@@ -1,9 +1,9 @@
-package cz.vhromada.web.wicket.controllers;
+package cz.vhromada.web.wicket.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cz.vhromada.web.wicket.events.PageEvent;
+import cz.vhromada.web.wicket.event.PageEvent;
 
 import org.springframework.util.Assert;
 
