@@ -28,7 +28,7 @@ public class FrontController {
      * Controllers
      */
     @Autowired
-    @SuppressWarnings({ "MismatchedQueryAndUpdateOfCollection", "SpringAutowiredFieldsWarningInspection", "SpringJavaAutowiringInspection" })
+    @SuppressWarnings({ "SpringAutowiredFieldsWarningInspection", "SpringJavaAutowiringInspection" })
     private List<Controller<?>> controllers;
 
     /**
