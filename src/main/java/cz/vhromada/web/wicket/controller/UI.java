@@ -1,6 +1,7 @@
 package cz.vhromada.web.wicket.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import cz.vhromada.web.wicket.event.PageEvent;
@@ -37,7 +38,7 @@ public class UI {
      * @return events
      */
     public List<PageEvent> getEvents() {
-        return events;
+        return Collections.unmodifiableList(events);
     }
 
 }

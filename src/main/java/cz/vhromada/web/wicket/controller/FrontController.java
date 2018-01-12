@@ -28,7 +28,7 @@ public class FrontController {
      * Controllers
      */
     @Autowired
-    @SuppressWarnings({ "SpringAutowiredFieldsWarningInspection", "SpringJavaAutowiringInspection" })
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private List<Controller<?>> controllers;
 
     /**

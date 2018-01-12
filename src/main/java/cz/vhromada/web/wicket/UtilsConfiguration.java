@@ -2,7 +2,6 @@ package cz.vhromada.web.wicket;
 
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 import org.apache.wicket.protocol.http.WicketFilter;
 import org.apache.wicket.spring.SpringWebApplicationFactory;
@@ -25,7 +24,7 @@ public class UtilsConfiguration implements ServletContextInitializer {
     private String configuration;
 
     @Override
-    public void onStartup(final ServletContext servletContext) throws ServletException {
+    public void onStartup(final ServletContext servletContext) {
         final FilterRegistration filter = servletContext.addFilter("wicket-filter", WicketFilter.class);
         filter.setInitParameter(WicketFilter.APP_FACT_PARAM, SpringWebApplicationFactory.class.getName());
         filter.setInitParameter("applicationBean", "catalogApplication");
