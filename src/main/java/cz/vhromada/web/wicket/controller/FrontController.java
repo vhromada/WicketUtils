@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
 import cz.vhromada.web.wicket.event.PageEvent;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author Vladimir Hromada
  */
 @Component("frontController")
-public class FrontController {
+public class FrontController implements InitializingBean {
 
     /**
      * Map: flow -> controller
@@ -28,7 +27,7 @@ public class FrontController {
      * Controllers
      */
     @Autowired
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    @SuppressWarnings({ "SpringJavaInjectionPointsAutowiringInspection", "SpringJavaAutowiredFieldsWarningInspection" })
     private List<Controller<?>> controllers;
 
     /**
@@ -53,6 +52,14 @@ public class FrontController {
         }
     }
 
+    @Override
+    public void afterPropertiesSet() {
+        flowControllerMap = new HashMap<>();
+        for (final Controller<?> controller : controllers) {
+            flowControllerMap.put(controller.getFlow(), controller);
+        }
+    }
+
     /**
      * Returns controller for specified flow.
      *
@@ -63,17 +70,6 @@ public class FrontController {
     @SuppressWarnings("unchecked")
     private <T> Controller<T> lookup(final Flow flow) {
         return (Controller<T>) flowControllerMap.get(flow);
-    }
-
-    /**
-     * Initializes map between flow and controller.
-     */
-    @PostConstruct
-    private void init() {
-        flowControllerMap = new HashMap<>();
-        for (final Controller<?> controller : controllers) {
-            flowControllerMap.put(controller.getFlow(), controller);
-        }
     }
 
 }
