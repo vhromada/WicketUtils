@@ -48,8 +48,8 @@ public class AjaxFlowSubmitLink extends AjaxSubmitLink {
     }
 
     @Override
-    public void onSubmit(final AjaxRequestTarget target, final Form<?> form) {
-        super.onSubmit(target, form);
+    public void onSubmit(final AjaxRequestTarget target) {
+        super.onSubmit(target);
 
         Assert.notNull(flow, "Flow mustn't be null.");
 
