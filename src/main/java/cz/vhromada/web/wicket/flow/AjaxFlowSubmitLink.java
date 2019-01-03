@@ -43,16 +43,16 @@ public class AjaxFlowSubmitLink extends AjaxSubmitLink {
     public AjaxFlowSubmitLink(final String id, final Form<?> form, final Flow flow) {
         super(id, form);
 
+        if (flow == null) {
+            throw new IllegalArgumentException("Flow mustn't be null.");
+        }
+
         this.flow = flow;
     }
 
     @Override
     public void onSubmit(final AjaxRequestTarget target) {
         super.onSubmit(target);
-
-        if (flow == null) {
-            throw new IllegalArgumentException("Flow mustn't be null.");
-        }
 
         new FlowRunner(this, flow, getForm().getModel());
     }
