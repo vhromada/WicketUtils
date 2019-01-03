@@ -55,9 +55,7 @@ public class FrontController implements InitializingBean {
     @Override
     public void afterPropertiesSet() {
         flowControllerMap = new HashMap<>();
-        for (final Controller<?> controller : controllers) {
-            flowControllerMap.put(controller.getFlow(), controller);
-        }
+        controllers.forEach(controller -> flowControllerMap.put(controller.getFlow(), controller));
     }
 
     /**

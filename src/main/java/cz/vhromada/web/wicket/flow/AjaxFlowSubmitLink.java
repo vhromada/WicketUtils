@@ -8,7 +8,6 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.Form;
-import org.springframework.util.Assert;
 
 /**
  * A class represents AJAX flow submit link.
@@ -51,7 +50,9 @@ public class AjaxFlowSubmitLink extends AjaxSubmitLink {
     public void onSubmit(final AjaxRequestTarget target) {
         super.onSubmit(target);
 
-        Assert.notNull(flow, "Flow mustn't be null.");
+        if (flow == null) {
+            throw new IllegalArgumentException("Flow mustn't be null.");
+        }
 
         new FlowRunner(this, flow, getForm().getModel());
     }

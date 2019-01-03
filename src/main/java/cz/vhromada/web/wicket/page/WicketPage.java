@@ -48,7 +48,6 @@ public abstract class WicketPage extends WebPage {
         super.onEvent(event);
 
         final Object payload = event.getPayload();
-
         if (payload instanceof FrontControllerRequest<?>) {
             final List<PageEvent> pageEvents = frontController.dispatch((FrontControllerRequest<?>) payload);
             for (final PageEvent pageEvent : pageEvents) {
@@ -65,7 +64,9 @@ public abstract class WicketPage extends WebPage {
      * @return AJAX request target
      */
     protected static AjaxRequestTarget getAjaxRequestTarget() {
-        return RequestCycle.get().find(AjaxRequestTarget.class).orElseGet(EmptyAjaxRequestTarget::new);
+        return RequestCycle.get()
+            .find(AjaxRequestTarget.class)
+            .orElseGet(EmptyAjaxRequestTarget::new);
     }
 
     /**

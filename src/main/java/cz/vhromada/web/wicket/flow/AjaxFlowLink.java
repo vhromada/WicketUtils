@@ -8,7 +8,6 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.model.IModel;
-import org.springframework.util.Assert;
 
 /**
  * A class represents AJAX flow link.
@@ -57,7 +56,9 @@ public class AjaxFlowLink<T> extends AjaxLink<T> {
     public AjaxFlowLink(final String id, final IModel<T> model, final Flow flow) {
         super(id, model);
 
-        Assert.notNull(flow, "Flow mustn't be null.");
+        if (flow == null) {
+            throw new IllegalArgumentException("Flow mustn't be null.");
+        }
 
         this.flow = flow;
     }

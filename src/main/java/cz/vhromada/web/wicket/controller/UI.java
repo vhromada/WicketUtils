@@ -6,8 +6,6 @@ import java.util.List;
 
 import cz.vhromada.web.wicket.event.PageEvent;
 
-import org.springframework.util.Assert;
-
 /**
  * A class represents user interface.
  *
@@ -27,7 +25,9 @@ public class UI {
      * @throws IllegalArgumentException if event is null
      */
     public void fireEvent(final PageEvent event) {
-        Assert.notNull(event, "Event mustn't be null.");
+        if (event == null) {
+            throw new IllegalArgumentException("Event mustn't be null.");
+        }
 
         events.add(event);
     }

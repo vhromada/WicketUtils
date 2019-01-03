@@ -2,7 +2,6 @@ package cz.vhromada.web.wicket.controller;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.event.Broadcast;
-import org.springframework.util.Assert;
 
 /**
  * A class represents flow runner.
@@ -22,8 +21,12 @@ public class FlowRunner {
      *                                  or flow is null
      */
     public <T> FlowRunner(final Component source, final Flow flow, final T data) {
-        Assert.notNull(source, "Source mustn't be null.");
-        Assert.notNull(flow, "Flow mustn't be null.");
+        if (source == null) {
+            throw new IllegalArgumentException("Source mustn't be null.");
+        }
+        if (flow == null) {
+            throw new IllegalArgumentException("Flow mustn't be null.");
+        }
 
         source.send(source.getPage(), Broadcast.EXACT, new FrontControllerRequest<>(flow, data));
     }

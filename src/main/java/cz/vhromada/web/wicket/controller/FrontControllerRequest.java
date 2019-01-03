@@ -1,7 +1,5 @@
 package cz.vhromada.web.wicket.controller;
 
-import org.springframework.util.Assert;
-
 /**
  * A class represents front controller's request.
  *
@@ -28,7 +26,9 @@ public class FrontControllerRequest<T> {
      * @throws IllegalArgumentException if flow is null
      */
     public FrontControllerRequest(final Flow flow, final T data) {
-        Assert.notNull(flow, "Flow mustn't be null.");
+        if (flow == null) {
+            throw new IllegalArgumentException("Flow mustn't be null.");
+        }
 
         this.flow = flow;
         this.data = data;

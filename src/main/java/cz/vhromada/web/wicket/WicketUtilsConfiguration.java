@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
  */
 @Configuration
 @ComponentScan("cz.vhromada.web.wicket")
-public class UtilsConfiguration implements ServletContextInitializer {
+public class WicketUtilsConfiguration implements ServletContextInitializer {
 
     @Value("${wicket.configuration:#{null}}")
     private String configuration;
